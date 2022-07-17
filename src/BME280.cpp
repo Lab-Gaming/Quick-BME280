@@ -35,9 +35,7 @@ bool BME280::begin() {
 
 	if(ret) {
 
-
 		if(data[0] == 0x60) {
-
 
 			data[0] = CTRL_HUM_ADDR;
 			data[1] = DEFAULT_HUM_SETTINGS;
@@ -47,25 +45,21 @@ bool BME280::begin() {
 			data[1] = DEFAULT_PT_SETTINGS;
 			I2Cwrite(BME_ADDR, data, 2);
 
-
 			I2Cwrite(BME_ADDR, &TEMP_DIG_ADDR, 1);
 			ret = I2Cread(BME_ADDR, m_dig, TEMP_DIG_LENGTH);
 			len += TEMP_DIG_LENGTH;
 			if(!ret) {return ret;}
-
 
 			I2Cwrite(BME_ADDR, &PRESS_DIG_ADDR, 1);
 			ret = I2Cread(BME_ADDR, m_dig+len, PRESS_DIG_LENGTH);
 			len += PRESS_DIG_LENGTH;
 			if(!ret) {return ret;}
 
-
 			I2Cwrite(BME_ADDR, &HUM_DIG_ADDR1, 1);
 			ret = I2Cread(BME_ADDR, m_dig+len, HUM_DIG_ADDR1_LENGTH);
 			len += HUM_DIG_ADDR1_LENGTH;
 			if(!ret) {return ret;}
 
-			HUM_DIG_ADDR2;
 			I2Cwrite(BME_ADDR, &HUM_DIG_ADDR2, 1);
 			I2Cread(BME_ADDR, m_dig+len, HUM_DIG_ADDR2_LENGTH);
 			if(!ret) {return ret;}
@@ -139,17 +133,19 @@ uint32_t BME280::calcHum(int32_t raw, int32_t t_fine) {
 
 
 void BME280::getRaw() {
-
+	uint8_t data[2] = {CTRL_MEAS_ADDR, DEFAULT_PT_SETTINGS};
+	I2Cwrite(BME_ADDR, data, 2);
+	I2Cwrite(BME_ADDR, &PRESS_ADDR, 1);
+	I2Cread(BME_ADDR, rawData, 8);
 }
 
 void BME280::getData(float *array, uint8_t arrLen) {
 	if(arrLen<3) {return;}
-	uint8_t data[8];
+	uint8_t* data = rawData;
 	uint32_t p, t, h;
 	int32_t t_f;
 
-	I2Cwrite(BME_ADDR, &PRESS_ADDR, 1);
-	I2Cread(BME_ADDR, data, 8);
+
 	t = ((uint32_t)data[3] << 12 | (uint32_t)data[4]<<4) | data[5] >> 4;
 	
 
