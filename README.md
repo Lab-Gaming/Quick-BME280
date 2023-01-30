@@ -5,4 +5,5 @@ This is a lightweight and quick library for interfacing with the BME280 sensor v
 
 ## How to use the library
 
-1. Initiate the sensor using the c++``` begin() ```c++ function
+Initiate the sensor using the ``` BME280.begin() ``` function. 
+This will initiate the sensor with default settings.
