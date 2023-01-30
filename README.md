@@ -27,6 +27,7 @@ The user can select 2 data output formats:
 * Raw sensor data - 
 ```c++
 getRaw()```
+
 * Data processed by Bosch's algorithm - 
 ```c++
 getData(float *array, uint8_t arrLen)```
