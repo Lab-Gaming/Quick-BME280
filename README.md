@@ -25,4 +25,4 @@ allowing the editing of the registers essential of desired BME280 operation.
 
 The user can select 2 data output formats:
 * Raw sensor data - ```getRaw()```
-* Data processed by Bosch's algorithm - getData()
+* Data processed by Bosch's algorithm - ```getData()```
