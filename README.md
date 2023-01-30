@@ -26,9 +26,11 @@ allowing the editing of the registers essential of desired BME280 operation.
 The user can select 2 data output formats:
 * Raw sensor data - 
 ```c++
-getRaw()```
+getRaw()
+```
 
 * Data processed by Bosch's algorithm - 
 ```c++
-getData(float *array, uint8_t arrLen)```
+getData(float *array, uint8_t arrLen)
+```
 
