@@ -33,4 +33,10 @@ getRaw()
 ```c++
 getData(float *array, uint8_t arrLen)
 ```
+If the user would like to use an official Red Labs BME280 breakout 
+the pinout is as follows:
+|P1|P2|P3|P4|
+|---|---|---|---|
+|3V3|GND|SCL|SDA|
 
+Red Labs 2023
