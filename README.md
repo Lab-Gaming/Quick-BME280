@@ -42,7 +42,7 @@ method is available.
 
 
 If for any reason the sensor would hang us or cease working as expected,
-the user can soft-reset the device using
+the user can soft-reset the device using the
 ```c++
 softReset()
 ```
