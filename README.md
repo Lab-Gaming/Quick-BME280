@@ -33,6 +33,21 @@ getRaw()
 ```c++
 getData(float *array, uint8_t arrLen)
 ```
+If the user would need to know the status of the device before taking a reading,
+the 
+```c++
+getStatus()
+```
+method is available.
+
+
+If for any reason the sensor would hang us or cease working as expected,
+the user can soft-reset the device using
+```c++
+softReset()
+```
+method 
+
 If the user would like to use an official Red Labs BME280 breakout 
 the pinout is as follows:
 |P1|P2|P3|P4|
