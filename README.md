@@ -4,12 +4,6 @@
 This is a lightweight and quick library for interfacing with the BME280 sensor vis I2C.
 More information about the sensor can be found here: [Manufacturer's website](https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/)
 
-
-## Table of contents
-[_TOC_]
-## How to use the library
-### PT_Settings register
-
 ## How to use the library
 
 Initiate the sensor using the ```BME280.begin()``` function.
